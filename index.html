@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <title>To Do Lists</title>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 타이틀 -->
+        <h1>To Do Lists</h1>
+
+        <!-- 오늘 할 일 -->
+        <div id="today_to_do">
+            <div class="white_box">
+                <h1 class="title">오늘 할 일</h1>
+
+                <div class="input_box">
+                    <input class="to_do_input" type="text" placeholder="오늘 할 일을 적어주세요." required>
+                    <div>
+                        <input class="timer_input" type="time" required>
+                        <button class="save_btn" type="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 체크리스트 -->
+        <div id="check_lists">
+            <div class="white_box">
+                <h1 class="title">체크리스트</h1>
+                <p class="write_to_do">오늘 할 일을 작성해 주세요.</p>   
+                <table>
+                    <thead>
+                        <tr>
+                            <td>#ID</td>
+                            <td>Project</td>
+                            <td>Timer</td>
+                            <td>Check</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>           
+            </div>
+        </div>
+
+        <!-- 성공률 & 시계 -->
+        <div class="flex">
+            <!-- 성공률 -->
+            <div id="success_rate">
+                <div class="white_box">
+                    <h1 class="title">성공률</h1>
+                    <p class="fountain"><span class="successCount">0</span> / <span class="checkListsCount">0</span></p>
+                    <div class="line_graph">
+                        <div class="color_bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 시계 -->
+            <div id="clock">
+                <div class="white_box">
+                    <h1 class="title">현재시간</h1>
+                    <p class="clock"><span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 팝업(성공시) -->
+        <div id="popup">
+            <div class="popup_box">
+                <button class="close_btn"></button>
+                <p>성공률 100% <span class="emoji">😍</span><br/>
+                    대단해요~! <span class="emoji">👍</span>
+                </p>
+            </div>
+        </div>
+    </div>  
+
+    <!-- script -->
+    <script src="js/index.js" type="text/javascript"></script>
+</body>
+</html>

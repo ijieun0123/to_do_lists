@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/* ===== 폰트 컬러칩 ===== */
+:root{
+    --main-color:#438AFE;
+    --sub-color:#EEF1F5;
+    --black-color:#333;
+    --dark-gray-color:#555;
+    --light-gray-color:#999;
+    --red-color:#f96c84;
+    --border-color:#e6e6e6;
+}
+
+/* ===== 바디 ===== */
+body{
+    position: relative;
+    width:100vw;
+    height:82vh;
+    margin:0;
+    padding:50px 0 100px;
+    background: var(--sub-color);
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* ===== 폰트 ===== */
+.title{
+    margin:0;
+    margin-bottom:30px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--black-color);
+}
+
+.body{
+    margin:0;
+    padding:0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color:var(--dark-gray-color);
+}
+
+/* ===== 공통 스타일 ===== */
+/* 웹 */
+#wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width:1000px;
+    margin:0 auto;
+}
+
+/* 화이트 박스 */
+.white_box{
+    position: relative;
+    padding:30px;
+    background:#fff;
+}
+/* 인풋 */
+input{
+    padding:7px 0;
+    border:none;
+}
+input::placeholder{
+    color:var(--light-gray-color);
+}
+input:focus-visible{
+    outline: none;
+}
+/* 버튼 */
+button{
+    outline: none;
+    background: none;
+    border: none;
+}
+
+/* ===== 오늘 할 일 ===== */
+/* 인풋 박스 */
+.input_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 인풋 타입 텍스트 */
+input[type="text"]{
+    width:70%;
+    font-size:16px;
+    color:var(--dark-gray-color);
+    border-bottom:1px solid var(--border-color);
+    transition:0.1s;
+}
+input[type="text"]:focus-visible{
+    border-bottom:2px solid var(--main-color);
+}
+/* 인풋 타입 타임 */
+input[type="time"]{
+    position: relative;
+    margin-right:20px;
+    color:var(--light-gray-color);
+    font-size: 15px;
+    font-weight: 400;
+}
+input[type="time"]::-webkit-calendar-picker-indicator { 
+    background: transparent;
+    z-index: 1;
+} 
+input[type="time"]:after{
+  position: absolute;
+  top:50%;
+  right:0px;
+  content: '';
+  width: 20px;
+  height:22px;
+  background: #fff url('../img/time.svg') center center /contain;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+/* 저장버튼 */
+.save_btn{
+    padding:10px 13px;
+    border:1px solid var(--main-color);
+    color:var(--main-color);
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition:0.1s;
+}
+.save_btn:hover{
+    background:var(--main-color);
+    color:#fff;
+}
+
+/* ===== 체크리스트 ===== */
+/* 테이블 */
+table{
+    width:100%;
+    text-align: center;
+}
+/* 오늘 할 일을 등록해 주세요 */
+.write_to_do{
+    margin:0;
+    font-size: 15px;
+    color:var(--light-gray-color);
+}
+/* 테이블 - tr */
+table tr{
+    display: flex;
+    border-bottom:1px solid var(--border-color);
+    color:var(--dark-gray-color);
+}
+/* 테이블 - thead */
+table thead tr{
+    border-bottom:2px solid var(--border-color);
+}
+table thead tr td{
+    font-weight: 700;
+    color:var(--black-color);
+}
+/* 테이블 - tbody */
+table tbody tr{
+    position: relative;
+    transition:0.2s;
+}
+/* 테이블 - td */
+table tr td{
+    padding:13px 0;
+    font-size:14px;
+    font-weight: 400;
+}
+table tr td:nth-child(1){
+    width:5%;
+}
+table tr td:nth-child(2){
+    width:65%;
+}
+table tr td:nth-child(3){
+    width:10%;
+}
+table tr td:nth-child(4){
+    width:10%;
+}
+table tr td:nth-child(5){
+    width:10%;
+}
+
+/* 데드라인 */
+.dead_line{
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+    display: none;
+    width:100%;
+    height:1px;
+    background:var(--border-color);
+}
+
+/* 삭제버튼 */
+.delete_btn{
+    width:14px;
+    height:14px;
+    cursor: pointer;
+    background: url(../img/close.svg) no-repeat center / contain;
+}
+
+/* ========== 성공률 & 시계 ========== */
+.flex{
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+/* ===== 성공률 ===== */
+#success_rate{
+    width:70%;
+}
+
+.line_graph{
+    width:100%;
+    height:10px;
+    background:var(--sub-color);
+    border-radius: 5px;
+}
+
+.line_graph .color_bar{
+    width:0;
+    height:100%;
+    background:var(--main-color);
+    border-radius: 5px;
+    transition:0.5s;
+}
+
+.fountain{
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--dark-gray-color);
+}
+
+/* ===== 시계 ===== */
+#clock{
+    width:30%;
+}
+
+#clock p{
+    margin:0;
+    margin-top: -25px;
+    text-align: right;
+    font-size:25px;
+    font-weight: 500;
+    color:var(--main-color);
+}
+
+/* ===== 팝업 ===== */
+#popup{
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.9);
+}
+
+.popup_box{
+    position: absolute;
+    top:50%;
+    left:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    width:350px;
+    height:150px;
+    background:#fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.popup_box p{
+    font-size: 16px;
+    color:var(--black-color);
+    font-weight: 600;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.popup_box p .emoji{
+    margin-left:5px;
+    font-size:22px;
+}
+
+.close_btn{
+    position: absolute;
+    top:20px;
+    right:20px;
+    width:18px;
+    height:18px;
+    cursor: pointer;
+    background: url('../img/close.svg') no-repeat center / contain;
+}
