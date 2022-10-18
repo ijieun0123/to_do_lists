@@ -1,6 +1,6 @@
 ## :pencil2: &nbsp; 투두리스트 프로젝트
 
-* [투두리스트 주소](https://ji-eun1.github.io/to_do_lists)
+* [투두리스트 주소](https://ji-eun1.github.io/to_do_lists) ( JS 프로젝트 )
 
 <br/>
   
