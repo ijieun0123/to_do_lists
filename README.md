@@ -17,6 +17,7 @@
 
 <pre>
 * 오늘 할 일
+<<<<<<< HEAD
   1. 오늘 할 일과 알람을 입력하여 체크리스트를 추가할 수 있습니다.
   2. 오늘 할 일이나 알람 둘 중 하나가 비어있을 경우, save 버튼을 클릭시 경고창이 뜹니다.
 </pre>
@@ -32,6 +33,15 @@ https://user-images.githubusercontent.com/97034723/196383385-d10269ee-12ab-4a9e-
 https://user-images.githubusercontent.com/97034723/196383419-200ffd10-b05e-428c-afe0-d48935e09045.mov
 
 <br/>
+=======
+</pre>
+https://user-images.githubusercontent.com/97034723/196383385-d10269ee-12ab-4a9e-a035-0b2b4646d172.mov
+
+<pre>
+* 체크리스트
+</pre>
+https://user-images.githubusercontent.com/97034723/196383419-200ffd10-b05e-428c-afe0-d48935e09045.mov
+>>>>>>> b4e198fb090b4846472eab40284e272dd8d28b67
 
 <pre>
 * 성공률 ( + 팝업창 )
