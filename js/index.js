@@ -4,38 +4,24 @@ const saveBtn = document.querySelector(".save_btn");
 const tableBody = document.querySelector("table tbody");
 const closePopupBtn = document.querySelector(".close_btn");
 
-/*
-localStorage.setItem('myCat', 'Tom');
-const cat = localStorage.getItem('myCat');
-
-localStorage.removeItem('myCat');
-localStorage.clear(); // 전체제거
-console.log(cat)
-
-<tr>
-    <td>1</td>
-    <td>요가하기</td>
-    <td>19:00</td>
-    <td><input type="checkbox"></td>
-    <td><img class="delete_btn" src="img/close.svg" alt="삭제"/></td>
-</tr>
-*/
-
 let toDosArr = [];
 let checkListsItemArr = [];
 let toDoValue = '';
 let timerValue = '';
 
+// 오늘할 일 인풋 체인지 이벤트리스너
 toDoInput.addEventListener('change', (e) => {
     e.preventDefault();
     toDoValue = e.target.value;
 })
 
+// 알람 체인지 이벤트리스너
 timerInput.addEventListener('change', (e) => {
     e.preventDefault();
     timerValue = e.target.value;
 })
 
+// save 버튼 클릭시 동작
 saveBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -52,6 +38,7 @@ saveBtn.addEventListener('click', (e) => {
     }
 })
 
+// 팝업창 x 버튼을 클릭하면 동작
 closePopupBtn.addEventListener('click', (e) => {
     const popup = document.querySelector('#popup');
     const tr = document.querySelectorAll("table tbody tr");
@@ -73,12 +60,13 @@ closePopupBtn.addEventListener('click', (e) => {
     localStorage.clear();
 })
 
+// 체크리스트를 로컬스토리지에 저장하는 함수 setLocalStorage
 const setLocalStorage = () => {
     toDosArr.push({project:toDoValue, timer:timerValue});
-    // toDosArr.sort((a, b) => Number(a.timer.replace(':', '')) - Number(b.timer.replace(':', '')));
     localStorage.setItem('toDos', JSON.stringify(toDosArr));
 }
 
+// 체크리스트를 추가하는 함수 addCheckLists
 const addCheckLists = () => {
     const tr = document.createElement('tr');
     const id = document.createElement('td');
@@ -89,6 +77,7 @@ const addCheckLists = () => {
     const input = document.createElement('input');
     const deleteBtn = document.createElement('button');
     const deadLine = document.createElement('span');
+    const tbodyTr = document.querySelectorAll("table tbody tr");
     
     checkListsItemArr = JSON.parse(localStorage.getItem('toDos'));
     checkListsItemArr.forEach((el, i) => {
@@ -113,7 +102,6 @@ const addCheckLists = () => {
         tr.appendChild(deadLine);
         tableBody.appendChild(tr);
     })
-
     deleteBtn.addEventListener("click", (e) => {
         e.preventDefault();
         removeCheckList(e);
@@ -127,6 +115,7 @@ const addCheckLists = () => {
     })
 }
 
+// x 버튼 클릭시 체크리스트를 지우는 함수 removeCheckList
 const removeCheckList = (e) => {
     const tr = document.querySelectorAll("table tbody tr");
     const selectedCheckList = e.target.parentNode.parentNode;
@@ -143,6 +132,7 @@ const removeCheckList = (e) => {
     checkListsItemArr = JSON.parse(localStorage.getItem('toDos'));
 }
 
+// 성공률 그래프를 채우는 함수 paintColorBar
 const paintColorBar = () => {
     const checkboxBtn = document.querySelectorAll(".checkbox");
     const colorBar = document.querySelector('.color_bar');
@@ -169,6 +159,7 @@ const paintColorBar = () => {
     }
 }
 
+// 오늘 할 일, 알람 인풋 리셋 함수 resetInput
 const resetInput = () => {
     toDoInput.value = '';
     timerInput.value = '';
@@ -176,6 +167,7 @@ const resetInput = () => {
     timerValue = '';
 }
 
+// 알람 setTimer
 const setTimer = () => {
     const today = new Date();   
     const hours = ('0' + today.getHours()).slice(-2); 
@@ -212,6 +204,7 @@ const setTimer = () => {
     })
 }
 
+// 시계 setClock
 const setClock = () => {
     const today = new Date();   
     const hoursValue = ('0' + today.getHours()).slice(-2); 
@@ -226,6 +219,7 @@ const setClock = () => {
     seconds.innerText = secondsValue;
 }
 
+// 체크리스트가 있는지 확인하여 테이블 혹은 안내문을 띄우는 함수 setCheckListsBody
 const setCheckListsBody = () => {
     const table = document.querySelector("table");
     const writeToDo = document.querySelector('.write_to_do');
@@ -239,6 +233,7 @@ const setCheckListsBody = () => {
     }
 }
 
+// 온로드 시 알람, 시계 동작
 window.onload = () => {
     setInterval(function() {
         setTimer();

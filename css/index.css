@@ -19,6 +19,7 @@ body{
     margin:0;
     padding:50px 0 100px;
     background: var(--sub-color);
+    overflow-x:hidden;
     font-family: 'Open Sans', sans-serif;
 }
 
