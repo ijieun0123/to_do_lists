@@ -27,8 +27,8 @@ https://user-images.githubusercontent.com/97034723/196383419-200ffd10-b05e-428c-
 
 <pre>
 * 성공률 ( + 팝업창 )
-https://user-images.githubusercontent.com/97034723/196383462-b4f07036-fa12-4930-ba9a-cd64c288ee6f.mov
 </pre>
+https://user-images.githubusercontent.com/97034723/196383462-b4f07036-fa12-4930-ba9a-cd64c288ee6f.mov
 
 <br/>
 
